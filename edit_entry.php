@@ -240,7 +240,7 @@ function create_field_entry_name($disabled=FALSE)
   
   // 'mandatory' is there to prevent null input (pattern doesn't seem to be triggered until
   // there is something there).
-  $params = array('label'      => get_vocab("namebooker") . "<span style='color: red;'>(姓名+部门)</span>" .":",
+  $params = array('label'      => "<span style='color: red;'>请填写姓名+部门</span>" .":",
                   'name'       => 'name',
                   'field'      => 'entry.name',
                   'value'      => $name,
@@ -262,7 +262,7 @@ function create_field_entry_description($disabled=FALSE)
   
   echo "<div id=\"div_description\">\n";
   
-  $params = array('label'       => get_vocab("fulldescription"),
+  $params = array('label'       => "<span style='color: red;'>请填写会议主题及参会人数</span>",
                   'name'        => 'description',
                   'value'       => $description,
                   'disabled'    => $disabled,
