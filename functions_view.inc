@@ -25,6 +25,26 @@ function create_details_row($label, $value, $as_html=FALSE, $class='')
   return $result;
 }
 
+function create_meet_description_details_row($label, $value, $as_html=FALSE, $class='')
+{
+    $result = '';
+    if ($as_html)
+    {
+        $result .= "<tr>\n";
+        $result .= "<td>$label:</td>\n";
+        $result .= "<td style='font-size: 18px;'" .
+            ((!empty($class)) ? " class=\"$class\"" : "") .
+            ">" . mrbs_nl2br(htmlspecialchars($value)) . "</td>\n";
+        $result .= "</tr>\n";
+    }
+    else
+    {
+        // Some of the vocab strings contain &nbsp;
+        $result .= str_replace('&nbsp;', ' ', $label) . ": $value\n";
+    }
+    return $result;
+}
+
 
 // Returns a string containg a set of details for $data consisting of a label/value
 // pair for each data element in the array $data.   If $as_html is TRUE then the string
@@ -98,7 +118,7 @@ function create_details_body($data, $as_html=FALSE, $keep_private=FALSE, $room_d
   $tbody .= ($as_html) ? "<tbody>\n" : "";
   // Description
   $class = ($keep_private & !empty($is_private_field['entry.description'])) ? "private" : "";
-  $tbody .= create_details_row(get_vocab("description"), $data['description'], $as_html, $class);
+  $tbody .= create_meet_description_details_row("会议".get_vocab("description"), $data['description'], $as_html, $class);
   // Confirmation status
   if ($confirmation_enabled)
   {

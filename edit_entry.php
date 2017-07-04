@@ -267,8 +267,9 @@ function create_field_entry_description($disabled=FALSE)
                   'value'       => $description,
                   'disabled'    => $disabled,
                   'maxlength'   => isset($maxlength['entry.description']) ? $maxlength['entry.description'] : NULL,
-                  'mandatory'   => !empty($is_mandatory_field['entry.description']));
-  
+                  'mandatory'  => TRUE
+                  );
+
   if (isset($select_options['entry.description']) ||
       isset($datalist_options['entry.description']) )
   {

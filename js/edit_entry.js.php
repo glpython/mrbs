@@ -242,6 +242,7 @@ function validationMessages()
   ?>
   validationMessages.vocab = {};
   validationMessages.vocab['name'] = '';
+  validationMessages.vocab['description'] = '';
   validationMessages.vocab['rooms'] = '';
   <?php
   foreach ($is_mandatory_field as $key => $value)
@@ -266,8 +267,8 @@ function validationMessages()
       label = $("label[for=" + key + "]");
       if (label.length > 0)
       {
-        validationMessages.vocab[key] = label.html();
-        validationMessages.vocab[key] = '"' + validationMessages.vocab[key].replace(/:$/, '') + '" ';
+//        validationMessages.vocab[key] = label.html();
+//        validationMessages.vocab[key] = '"' + validationMessages.vocab[key].replace(/:$/, '') + '" ';
         validationMessages.vocab[key] += '<?php echo escape_js(get_vocab("is_mandatory_field")) ?>';
     
         field = document.getElementById(key);
